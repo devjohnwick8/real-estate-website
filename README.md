@@ -1,64 +1,157 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1>Real Estate Agency Website</h1>
+<img src="https://img.shields.io/badge/License-MIT-blue.svg" />
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+##### Table of Contents  
+- [1.Installation](#instalation)  
+- [2.Description](#description)
+- [3.HowTo](#HowTo)
+  * [3.1 website](#website)
+  * [3.2 cms](#cms)
 
-## About Laravel
+<a name="instalation"/>
+<h3>Installation</h3>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p>Please check the official laravel installation guide for server requirements before you start. <a href="https://laravel.com/docs/8.x/installation">Official Documentation</a></p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<p>Laravel 8 requires PHP 7.3+ or above so you need this version or the latest version of PHP installed on your system.</p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<p>Clone the repository</p>
 
-## Learning Laravel
+```
+git clone https://github.com/LukaBis/real-estate-site.git
+```
+<p>Switch to the repo folder</p>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```
+cd real-estate-site
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<p>Install all the dependencies using composer</p>
 
-## Laravel Sponsors
+```
+composer install
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<p>Copy the example env file and make the required configuration changes in the .env file</p>
 
-### Premium Partners
+<p>Linux</p>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+```
+cp .env.example .env
+```
+<p>Windows</p>
 
-## Contributing
+```
+copy .env.example .env
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<p>Generate a new application key</p>
 
-## Code of Conduct
+```
+php artisan key:generate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<p>Run the database migrations <b>(Set the database connection in .env before migrating)</b></p>
 
-## Security Vulnerabilities
+```
+php artisan migrate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<p>Run the database seeder</p>
 
-## License
+```
+php artisan db:seed
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<p>Create the symbolic link</p>
+
+```
+php artisan storage:link
+```
+
+<p>Check images folder that is inside inside public. Delete images folder if there are no images (image files) in sub-folders of images folder. Then create new, empty images folder. and run:</p>
+
+```
+php artisan storage:link
+```
+
+<p>Start the local development server</p>
+
+```
+php artisan serve
+```
+
+<p>You can now access the server at http://localhost:8000</p>
+
+<a name="description"/>
+<h3>Description</h3>
+
+<p>This is a website for real estate agency. It could be used to display multiple
+real estate properties, testimonials, real estate agents, contact info, about page etc.</p>
+
+<p>It has support for two languages: English and Croatian.</p>
+
+<p>This website also has a CMS system. So admin can log-in and change the content of the site. Using CMS admin can add/edit/delete properties, agents, testimonials and contact information.</p>
+
+<p>Here is a link to <a href="http://real-estate-site.lukabiskupic.com">DEMO</a>. Unfortunately, you can't access CMS on live demo because anyone could potentially change something on the website and add something inappropriate. If you want to see CMS you will have to install project locally.</p>
+
+<p>On home page, you can see property images in carousel, services that agency provides, few properties, agents and testimonials. There are separate pages for list of all properties and agents.</p>
+
+<p>You also have an option to filter all properties based on multiple factors like: number of beds, city, price etc. <i>(If you try to filter this results on the demo I recommend to choose maximum of 2 options because if you choose more options you will probably get no results since there are only 10 properties in the database)</i></p>
+
+<p>I used Laravel framework to build this website. I also used HTML, CSS, jQuery, Bootstrap. Laravel translatable package was used to make site support multiple languages.</p>
+
+<a name="HowTo"></a>
+<h3>How to use this website</h3>
+
+<p>This section has two parts. First part explains how to use the website (this part will be shot because most things are self explanatory) and the second part explains how to use the CMS.</p>
+
+<a name="website"></a>
+<h4>Website</h4>
+
+<p>In this section I will only mention how to use filter functionality and relation between agents and properties. Other things on the website are obvious and not worth explaining.</p>
+
+<p><b>Filter properties.</b> When you go to see list of all properties by clicking on the property link in navigation bar, you will see 6 properties on each page. Above those images you will see an option to select All, Active or Sold.</p>
+
+![image that shows filter option](https://github.com/LukaBis/ReadmeImages/blob/main/SmallFilterCircle.png?raw=true)
+
+<p>Each property can have one of two statuses: active or sold. If you click Active, only active properties will be shown. In case you click Sold, only sold properties will be shown. Otherwise you will see all properties.</p>
+
+<p>If you click on search icon in navigation bar you will see a search form. It enables you to search properties based on multiple conditions.</p>
+
+![image that shows filter option](https://github.com/LukaBis/ReadmeImages/blob/main/filter.png?raw=true)
+
+<p><b>Connection between agents and properties.</b> Each <b>agent is responsible for multiple properties</b>(in some cases its 3 properties, sometimes just one, sometimes none).</p>
+
+<p>When you click on agent and you see all data about to that agent, at the bottom of the page you will see all properties that belong to that agent.</p>
+
+![agent's properties](https://github.com/LukaBis/ReadmeImages/blob/main/agents_properties.png?raw=true)
+
+<p>When you click on property and see all data about some property, at the bottom of the page you will see agent that is responsible for that property.</p>
+
+<a name="cms"></a>
+<h4>CMS</h4>
+
+<p>CMS is used by the admin of the site. He/she can change contact information, content of the about-page. CMS also allows you to add, edit or delete properties, agents and testimonials.</p>
+
+<p>If you cloned the project to your local machine and you want to use CMS, password is 123456789 and email is admin@email.com . You can access CMS by going to <b>/login</b> route or just click Admin link in the footer.</p>
+
+![cms](https://github.com/LukaBis/ReadmeImages/blob/main/cms.png?raw=true)
+
+<p>The way you work with property data is very similar to the way you would manipulate agent data, testimonial data, contact data etc. So I will only breakdown how to add/edit/delete properties and the rest is very similar.</p>
+
+<p>So when you click on <b>properties</b>, you will see a table of properties and property data. Last column contains a link to a page that displays single property. It looks like this</p>
+
+![single property](https://github.com/LukaBis/ReadmeImages/blob/main/single.png?raw=true)
+
+<p>This page allows you to see and modify some property data. You can change street name, number of beds, property's agent, property's status (active/sold). You can also change property's amenities etc.</p>
+
+<p>Each property has one vertical image. Vertical image is displayed on property-grid (list of <i>all</i> properties). Property has only one vertical image, but multiple horizontal images that are displayed in carousel.</p>
+
+<p>CMS allows you to change vertical image. It also allows you to delete or add horizontal images. Each image file upload has recommended image sizes:</p>
+
+![image size](https://github.com/LukaBis/ReadmeImages/blob/main/imagesizeCircuit.png?raw=true)
+
+<p>If you want to add new property, you have to click on Add Property and fill the form. You also have to add images of that property and then click "Save property".</p>
+
+<p>Licensed under the <a href="https://github.com/LukaBis/real-estate-site/blob/main/LICENSE">MIT License</a></p>
